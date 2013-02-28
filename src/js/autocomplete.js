@@ -29,7 +29,7 @@ define(function (require, exports, module) {
       this.get('trigger').attr('autocomplete', 'off')
         .on('blur.autocomplete', $.proxy(this._blurEvent, this))
         .on('input.autocomplete', $.proxy(this._inputEvent, this));
-      this.get('parentNode').append(this.element);
+      this.get('parentNode').append(this.element.hide());
     },
     _blurEvent: function () {
       this.hide();

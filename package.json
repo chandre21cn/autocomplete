@@ -14,7 +14,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "$": "gallery/zepto/1.0.0/zepto",
+    "$": "$",
     "widget": "arale/widget/1.0.2/widget"
   },
   "tests": ["autocomplete"],

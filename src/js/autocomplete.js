@@ -1,6 +1,8 @@
 define(function (require, exports, module) {
   var $ = require('$');
   var Widget = require('widget');
+  var Detect = require('detect');
+
   var AutoComplete = Widget.extend({
     attrs: {
       trigger: {
@@ -24,6 +26,14 @@ define(function (require, exports, module) {
       'touchstart [data-role=item]': '_touchstart',
       'touchmove [data-role=item]': '_touchmove',
       'touchend [data-role=item]': '_touchend'
+    },
+    delegateEvents: function () {
+      if (!Detect.support.touch) {
+        this.events = {
+          'click [data-role=item]': '_click'
+        };
+      }
+      AutoComplete.superclass.delegateEvents.apply(this, arguments);
     },
     setup: function () {
       this.get('trigger').attr('autocomplete', 'off')
@@ -78,6 +88,14 @@ define(function (require, exports, module) {
         this.get('trigger').val(value);
         setTimeout($.proxy(this, 'hide'), 360);
       }
+    },
+    _click: function (e) {
+      var item = $(e.currentTarget).data('item');
+      var key = this.get('dataKey');
+      var value = key ? item[key] : item;
+      this.get('trigger').val(value);
+      this.hide();
+      //setTimeout($.proxy(this, 'hide'), 360);
     },
     show: function () {
       this.element.show();

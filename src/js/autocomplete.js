@@ -42,7 +42,7 @@ define(function (require, exports, module) {
       this.get('parentNode').append(this.element.hide());
     },
     _blurEvent: function () {
-      this.hide();
+      this._hideTimer = setTimeout($.proxy(this, 'hide'), 50);
     },
     _inputEvent: function () {
       var value = this.get('trigger').val();
@@ -76,6 +76,7 @@ define(function (require, exports, module) {
     },
     _touchstart: function () {
       this.touchState = 'start';
+      this._hideTimer && clearTimeout(this.hideTimer);
     },
     _touchmove: function () {
       this.touchState = 'move';

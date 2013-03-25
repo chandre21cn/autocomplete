@@ -15,7 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "$": "$",
-    "widget": "arale/widget/1.0.2/widget",
+    "widget": "arale/widget/1.0.3/widget",
     "detect": "handy/base/1.0.0/js/detect"
   },
   "tests": ["autocomplete"],

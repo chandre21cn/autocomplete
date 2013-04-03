@@ -100,9 +100,11 @@ define(function (require, exports, module) {
     },
     show: function () {
       this.element.show();
+      this.trigger('show');
     },
     hide: function () {
       this.element.hide();
+      this.trigger('hide');
     }
   });
 

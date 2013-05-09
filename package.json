@@ -1,7 +1,7 @@
 {
   "name": "autocomplete",
   "version": "1.0.0",
-  "root": "handy",
+  "family": "handy",
   "description": "基于Zepto的移动端轻量级Autocomplete组件",
   "homepage": "https://github.com/handyjs/autocomplete",
   "author": "daxia.shidx <danxia.shidx@alipay.com>",
@@ -12,14 +12,14 @@
   "bugs": {
     "url": "https://github.com/handyjs/autocomplete/issues"
   },
-  "license": "MIT",
-  "dependencies": {
-    "$": "$",
-    "widget": "arale/widget/1.0.3/widget",
-    "detect": "handy/base/1.0.0/js/detect"
-  },
-  "tests": ["autocomplete"],
-  "output": {
-    "js/autocomplete.js": "."
+  "spm": {
+    "alias": {
+      "$": "$",
+      "widget": "arale/widget/1.0.3/widget",
+      "detect": "handy/base/1.0.0/js/detect"
+    },
+    "output": [
+      "js/autocomplete.js"
+    ]
   }
 }
